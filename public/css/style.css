@@ -1,0 +1,47 @@
+:root {
+    /* Primärfarbe (Grün) */
+    --primary: #4e6e5d !important;
+    --primary-hover: #3e5a4a !important;
+
+    /* Hintergrund der gesamten Seite */
+    --background-color: #1a1c1a !important;
+    --color: #dcedc8 !important;
+}
+
+/* Die Karten-Komponenten (Header, Body, Footer) */
+article {
+    background-color: #242824 !important; /* Dunkles Moosgrün */
+    border: 1px solid #3d3329 !important; /* Erdbrauner Rand */
+}
+
+article header {
+    background-color: #2e342e !important; /* Etwas abgesetzter Header */
+    border-bottom: 1px solid #3d3329 !important;
+}
+
+article footer {
+    background-color: #242824 !important;
+}
+
+/* Die Navigations-Links oben rechts */
+nav a {
+    color: #aebf97 !important; /* Ein helleres, entspanntes Grün */
+}
+
+nav a:hover {
+    color: #ffffff !important;
+}
+
+/* Der Titel oben links ("Trail-Guide") */
+nav ul li strong {
+    color: #dcedc8 !important;
+}
+
+h1, h2, h3 {
+    color: #ffffff !important;
+}
+
+/* Ein kleiner Akzent für die Kilometerangabe */
+article p strong {
+    color: #aebf97;
+}
