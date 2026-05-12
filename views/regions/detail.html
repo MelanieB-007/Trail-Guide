@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "macros/trailCard.html" import trailCard %}
 
 {% block content %}
 <header>
@@ -8,15 +9,14 @@
 
 <div class="grid">
     {% for trail in trails %}
-    <article>
-        <header><h3>{{ trail.name }}</h3></header>
-        <p>Länge: {{ trail.distance }} km</p>
-        <footer>
-            <a href="/trails/{{ trail.slug }}" role="button">Details</a>
-        </footer>
-    </article>
+    {# Hier übergeben wir den regionNames manuell, falls er im Model-Query fehlt #}
+    {% set trailWithRegion = trail %}
+    {% if not trail.regionName %}
+    {% set _ = trailWithRegion.update({'regionName': region.name, 'country': region.country}) %}
+    {% endif %}
+    {{ trailCard(trailWithRegion) }}
     {% else %}
-    <p>Aktuell sind keine Wege für diese Region eingetragen.</p>
+    <p>In dieser Region gibt es noch keine eingetragenen Wege.</p>
     {% endfor %}
 </div>
 
