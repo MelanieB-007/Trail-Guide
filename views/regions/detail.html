@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header>
+    <h1>Wandern im {{ region.name }}</h1>
+    <p>Hier findest du alle Touren für diese Region.</p>
+</header>
+
+<div class="grid">
+    {% for trail in trails %}
+    <article>
+        <header><h3>{{ trail.name }}</h3></header>
+        <p>Länge: {{ trail.distance }} km</p>
+        <footer>
+            <a href="/trails/{{ trail.slug }}" role="button">Details</a>
+        </footer>
+    </article>
+    {% else %}
+    <p>Aktuell sind keine Wege für diese Region eingetragen.</p>
+    {% endfor %}
+</div>
+
+<a href="/regions" class="secondary">Zurück zur Regionsübersicht</a>
+{% endblock %}

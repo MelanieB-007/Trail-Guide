@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Wanderregionen</h1>
+<div class="grid">
+    {% for region in regions %}
+    <article>
+        <header><h3>{{ region.name }}</h3></header>
+        <p>Entdecke die schönsten Wege in {{ region.country }}.</p>
+        <footer>
+            <a href="/regions/{{ region.slug }}" role="button">Alle Wege anzeigen</a>
+        </footer>
+    </article>
+    {% endfor %}
+</div>
+{% endblock %}
