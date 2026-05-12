@@ -45,3 +45,19 @@ h1, h2, h3 {
 article p strong {
     color: #aebf97;
 }
+
+/* Breadcrumb-Navigation dezent färben */
+nav[aria-label="breadcrumb"] a {
+    color: #aebf97 !important;
+    font-size: 0.9rem;
+}
+
+nav[aria-label="breadcrumb"] ul li:not(:last-child)::after {
+    color: #4a3728; /* Farbe des Trenners (/) */
+}
+
+/* Die Detail-Beschreibung etwas hervorheben */
+.lead {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
