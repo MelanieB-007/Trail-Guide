@@ -3,7 +3,17 @@ import { getDb } from "./db.js";
 // Holt alle Regionen für die Übersicht
 export async function getAllRegions() {
   const db = await getDb();
-  return db.all("SELECT * FROM regions ORDER BY name ASC");
+  // Wir zählen die IDs der Trails pro Region
+  const sql = `
+    SELECT 
+      r.*, 
+      COUNT(t.id) as trailCount 
+    FROM regions r
+    LEFT JOIN trails t ON r.id = t.region_id 
+    GROUP BY r.id 
+    ORDER BY r.name ASC`;
+
+  return db.all(sql);
 }
 
 // Holt eine Region anhand ihres Slugs
