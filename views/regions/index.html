@@ -1,13 +1,27 @@
 {% extends "base.html" %}
-{% from "macros/trailCard.html" import trailCard %}
 
 {% block content %}
 <h1>Wanderregionen</h1>
+<p>Wähle eine Region aus, um die dortigen Wege zu entdecken.</p>
+
 <div class="grid">
     {% for region in regions %}
-    {{ trailCard(trail) }}
+    <article style="border-top: 5px solid #4a3728;">
+        <header>
+            <h3 style="margin-bottom: 0;">{{ region.name }}</h3>
+            <small>{{ region.country }}</small>
+        </header>
+
+        <p>Entdecke die Vielfalt der Wanderwege im {{ region.name }}.</p>
+
+        <footer>
+            <a href="/regions/{{ region.slug }}" role="button" class="contrast">
+                Region erkunden
+            </a>
+        </footer>
+    </article>
     {% else %}
-    <p>Keine Wanderwege gefunden.</p>
+    <p>Bisher wurden keine Regionen angelegt.</p>
     {% endfor %}
 </div>
 {% endblock %}

@@ -3,7 +3,12 @@ import * as regionModel from "../models/regionModel.js";
 
 export async function renderAllRegions(req: Request, res: Response) {
   const regions = await regionModel.getAllRegions();
-  res.render("regions/index", { title: "Regionen", regions });
+
+  res.render("regions/index", {
+    title: "Regionen",
+    regions,
+    activePage: "regions",
+  });
 }
 
 export async function renderRegionDetail(req: Request, res: Response) {
@@ -25,5 +30,6 @@ export async function renderRegionDetail(req: Request, res: Response) {
     title: `Wandern im ${region.name}`,
     region,
     trails,
+    activePage: "regions",
   });
 }

@@ -8,6 +8,7 @@ export async function renderAllTrails(req: Request, res: Response) {
     res.render("index", {
       title: "Alle Wanderwege",
       trails: trails,
+      activePage: "trails",
     });
   } catch (error) {
     console.error("FEHLER IM CONTROLLER:", error); // Das sollte im Terminal erscheinen

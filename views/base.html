@@ -13,8 +13,12 @@
         <li><strong>Trail-Guide</strong></li>
     </ul>
     <ul>
-        <li><a href="/">Wanderwege</a></li>
-        <li><a href="/regions">Regionen</a></li>
+        <li>
+            <a href="/" class="{{ 'secondary' if activePage == 'trails' }}">Wanderwege</a>
+        </li>
+        <li>
+            <a href="/regions" class="{{ 'secondary' if activePage == 'regions' }}">Regionen</a>
+        </li>
     </ul>
 </nav>
 

@@ -9,12 +9,8 @@
 
 <div class="grid">
     {% for trail in trails %}
-    {# Hier übergeben wir den regionNames manuell, falls er im Model-Query fehlt #}
-    {% set trailWithRegion = trail %}
-    {% if not trail.regionName %}
-    {% set _ = trailWithRegion.update({'regionName': region.name, 'country': region.country}) %}
-    {% endif %}
-    {{ trailCard(trailWithRegion) }}
+    {# Wir nutzen das Makro direkt. Den fehlenden regionName fixen wir im Model (bester Weg) #}
+    {{ trailCard(trail) }}
     {% else %}
     <p>In dieser Region gibt es noch keine eingetragenen Wege.</p>
     {% endfor %}
