@@ -26,7 +26,9 @@ export async function renderTrailDetail(req: Request, res: Response) {
     const trail = await trailModel.getTrailBySlug(slug);
 
     if (!trail) {
-      return res.status(404).render("404", { message: "Wanderweg nicht gefunden" });
+      return res.status(404).render("404", {
+        title: "Weg nicht gefunden",
+      });
     }
 
     res.render("trail", {

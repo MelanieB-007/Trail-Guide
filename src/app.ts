@@ -17,12 +17,19 @@ nunjucks.configure(path.join(process.cwd(), "views"), {
 app.set("view engine", "html"); // Sagt Express: Dateien in /views sind HTML
 
 // 2. Middleware
-app.use(requestLogger); // Logger ganz nach oben
+app.use(requestLogger);
 app.use(express.static("public")); // Statische Dateien (CSS, Bilder)
-app.use(express.urlencoded({ extended: true })); // Wichtig für spätere Formulare
+app.use(express.urlencoded({ extended: true })); // Wichtig für Formulare
 
 // 3. Routen
 app.use("/", webRoutes);
+
+app.use((req, res) => {
+  res.status(404).render("404", {
+    title: "Seite nicht gefunden",
+    activePage: null,
+  });
+});
 
 // Der Server startet
 app.listen(port, () => {
