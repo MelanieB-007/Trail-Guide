@@ -107,3 +107,20 @@ Wichtig: Erstelle auch eine .env.example mit den gleichen Schlüsseln (aber ohne
 
 5. Ordnerstruktur anlegen
 New-Item -ItemType Directory -Path src/routes, src/controllers, src/models, src/middleware, views/macros, views/admin, public, data
+
+6.Typdeklarationspakete installieren
+npm install express
+npm install --save-dev typescript @types/express @types/node
+
+Json
+{
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js"
+  }
+}
+
+7. Nunjucks-Setup
+npm install nunjucks
+npm install --save-dev @types/nunjucks
+npm install --save-dev prettier prettier-plugin-jinja-template
